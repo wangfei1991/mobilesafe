@@ -45,7 +45,13 @@ public abstract class BaseSetupGuideActivity extends Activity {
 			
 		});
 	}
-
+	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+	}
+	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub

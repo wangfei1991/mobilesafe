@@ -1,19 +1,51 @@
 package com.wyu.mobilesafe;
 
+import com.wyu.mobilesafe.customeui.SettingItemView;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 
 public class SetupGuide4Activity extends BaseSetupGuideActivity {
 
+	private SharedPreferences preferences;
+	private SettingItemView settingItemView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setup_guide4);
-		overridePendingTransition(R.anim.guide_next_in_anim, R.anim.guide_next_out_anim);
+		
+		settingItemView = 
+					(SettingItemView) findViewById(R.id.settingProtecting);
+		
+		/***************************获取配置并设置****************************/
+		preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
+		boolean protect = preferences.getBoolean("startProtection", false);
+		settingItemView.setChecked(protect);
+		/******************************************************************/		
+		
+		/***************************保存配置********************************/
+		settingItemView.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				Editor edit = preferences.edit();
+				if (settingItemView.isChecked()) {
+					settingItemView.setChecked(false);
+					edit.putBoolean("startProtection", false);
+				}else{
+					settingItemView.setChecked(true);
+					edit.putBoolean("startProtection", true);
+				}
+				edit.commit();
+			}
+		});
+		/*****************************************************************/
 	}
 	public void pre(View view)
 	{
@@ -31,7 +63,7 @@ public class SetupGuide4Activity extends BaseSetupGuideActivity {
 	@Override
 	public void showNext() {
 		// TODO Auto-generated method stub
-		SharedPreferences preferences = getSharedPreferences("lostfind", Context.MODE_PRIVATE);
+		SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
 		Editor edit = preferences.edit();
 		edit.putBoolean("lostfind", true);
 		edit.commit();

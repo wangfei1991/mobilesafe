@@ -14,6 +14,7 @@
         android:background="@color/green"
         />
 	<com.wyu.mobilesafe.customeui.SettingItemView 
+	    android:id="@+id/settingProtecting"
 	    wyu:item_title="开启防盗保护"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"

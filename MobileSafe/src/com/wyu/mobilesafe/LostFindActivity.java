@@ -9,18 +9,42 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LostFindActivity extends Activity {
-
+	private TextView safePhoneTV;
+	private SharedPreferences preferences;
+	private ImageView protectImageView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		SharedPreferences preferences = getSharedPreferences("lostfind", Context.MODE_PRIVATE);
+		SharedPreferences preferences = getSharedPreferences("config",
+												 Context.MODE_PRIVATE);
 		boolean setupGuide = preferences.getBoolean("lostfind", false);
 		if (setupGuide) {
 			setContentView(R.layout.activity_lost_find);
+			
+			protectImageView = (ImageView) findViewById(R.id.protectImageView);
+			safePhoneTV = (TextView) findViewById(R.id.safePhoneTV);
+			
+			/********************从配置文件中获取安全号码************************/
+			String safePhone = preferences.getString("safePhone", "");
+			safePhoneTV.setText(safePhone);
+			/***************************************************************/
+			
+			/*******************************设置是否开启了防盗保护**************/
+			boolean protect = preferences.getBoolean("startProtection",false);
+			if (protect) {
+				protectImageView.setImageResource(R.drawable.locked);
+			}else{
+				protectImageView.setImageResource(R.drawable.unlock);
+			}
+			/**************************************************************/
+			
 		}else {			
-			Intent intent = new Intent(LostFindActivity.this, SetupGuide1Activity.class);
+			Intent intent = new Intent(LostFindActivity.this, 
+										   SetupGuide1Activity.class);
 			startActivity(intent);
 			finish();
 		}
