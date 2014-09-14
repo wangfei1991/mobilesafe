@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	 >
+
+    <com.wyu.mobilesafe.customeui.ADTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="3设置安全号码"
+        android:textSize="30sp"
+        android:background="@color/green"
+        />
+	<com.wyu.mobilesafe.customeui.ADTextView
+	    android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"  
+        android:layout_marginRight="5dp"      
+        android:text="SIM卡变更后\n报警短信会发送给安全号码"
+        android:textSize="24sp"
+        android:gravity="center_vertical"
+        />
+	<View 
+	    android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gary"
+	    />
+	<EditText 
+	    android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"  
+        android:layout_marginRight="5dp" 
+        android:inputType="phone"
+        android:hint="请输入电话号码"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        />
+	 <Button
+	    android:id="@+id/selectContactor"
+	    android:onClick="selectConta"
+	    android:background="@drawable/button_selector"
+	    android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" 
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"  
+	    android:text="选择联系人" />
+		
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+	    >
+		<LinearLayout 
+		    android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"			
+		    android:layout_marginBottom="10dp"
+		    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"  
+	        android:orientation="horizontal"
+	        android:gravity="center_horizontal"  
+		    >
+		   
+		    
+		    <ImageView
+		        style="@style/setupguide_imageview"
+		        />
+		    
+		    <ImageView 
+		        style="@style/setupguide_imageview"
+		        />
+		    
+		     <ImageView 
+		        style="@style/setupguide_imageview"  
+	            android:src="@drawable/onekey_item_select"
+		        />
+		     
+		    <ImageView 
+		        style="@style/setupguide_imageview"
+		        />
+		</LinearLayout>
+	    <Button
+	       	style="@style/setupguide_next_button"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"
+	        />
+	     <Button
+	        style="@style/setupguide_pre_button"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentLeft="true"
+	        />
+
+	</RelativeLayout>
+</LinearLayout>

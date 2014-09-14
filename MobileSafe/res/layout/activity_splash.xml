@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ 	android:orientation="vertical"
+ 	android:gravity="center_horizontal"
+ 	android:id="@+id/splash_layout"
+    tools:context="com.wyu.mobilesafe.SplashActivity" >
+
+    <ProgressBar
+        android:layout_marginTop="130dp"
+        style="@style/splash_pb_style"
+        android:id="@+id/splash_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+	<TextView 
+	    android:layout_marginTop="10dp"
+	    android:id="@+id/splash_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"    
+        android:textColor="@android:color/black"    
+        android:textSize="15dp"
+	    />
+	<TextView 
+	    android:layout_margin="15dp"
+	    android:id="@+id/splash_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"  	 
+        android:text="我的手机卫士"
+        android:textColor="@android:color/black"
+        android:textSize="28dp"   
+        android:shadowColor="@android:color/darker_gray"
+        android:shadowDx="6"
+        android:shadowDy="6"
+        android:shadowRadius="6"
+	    />
+	<TextView 
+	    android:visibility="gone"
+	    android:id="@+id/progressing_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"  	 
+        android:textSize="20sp"  
+        android:text="下载进度"     
+	    />
+</LinearLayout>

@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 xmlns:wyu="http://schemas.android.com/apk/res/com.wyu.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.wyu.mobilesafe.customeui.ADTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="4.恭喜你，设置完成"
+        android:textSize="30sp"
+        android:background="@color/green"
+        />
+	<com.wyu.mobilesafe.customeui.SettingItemView 
+	    wyu:item_title="开启防盗保护"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    ></com.wyu.mobilesafe.customeui.SettingItemView>	
+	
+	
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+	    >
+		<LinearLayout 
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			
+		    android:layout_marginBottom="10dp"
+		    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"  
+	        android:orientation="horizontal"
+	        
+		    >
+		    <ImageView
+		        style="@style/setupguide_imageview"
+		        />
+		    
+		    <ImageView 
+		        style="@style/setupguide_imageview"
+		        />
+		    
+		    <ImageView 
+		        style="@style/setupguide_imageview"
+		        />
+		      <ImageView 
+		      	style="@style/setupguide_imageview"
+	            android:src="@drawable/onekey_item_select"
+		        />
+		</LinearLayout>
+	    <Button
+	        style="@style/setupguide_next_button"
+	       	android:onClick="complete"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"	        
+	        android:text="设置完成" 
+	        />
+	     <Button
+	      	style="@style/setupguide_pre_button"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentLeft="true"	       
+	        />
+
+	</RelativeLayout>
+</LinearLayout>

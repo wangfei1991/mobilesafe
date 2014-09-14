@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="match_parent"
+   	android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    
+    <com.wyu.mobilesafe.customeui.ADTextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="60dp"
+	    android:text="设置密码"
+	    android:textSize="20dp"
+	    android:gravity="center"
+	    android:background="@color/green"
+        />
+    
+	<EditText 
+	    android:layout_margin="4dp"
+	    android:id="@+id/passwrod_et"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:hint="请输入密码"
+	    android:inputType="textPassword"
+	    />    
+	    
+	<EditText 
+	    android:layout_margin="4dp"
+	    android:id="@+id/password_confirm"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:hint="请再次输入密码"	    
+	    android:inputType="textPassword"
+	    />    
+	<RelativeLayout 
+	    android:layout_marginTop="10dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+	    <Button 
+	         android:layout_alignParentLeft="true"
+	         android:layout_width="wrap_content"
+	   		 android:layout_height="wrap_content"
+	   		 android:id="@+id/cancel"
+	    	 android:text="取消"   
+	        />
+	    
+	    <Button 
+	         android:layout_alignParentRight="true"
+	         android:layout_width="wrap_content"
+	   		 android:layout_height="wrap_content"
+	   		 android:id="@+id/ok"
+	    	 android:text="确定"	   
+	        />
+	</RelativeLayout>
+	    
+
+</LinearLayout>

@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	xmlns:wyu="http://schemas.android.com/apk/res/com.wyu.mobilesafe">
+
+    <com.wyu.mobilesafe.customeui.ADTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="2.手机绑定"
+        android:textSize="30sp"
+        android:background="@color/green"
+        />
+	<com.wyu.mobilesafe.customeui.ADTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="通过绑定SIM卡:"
+        android:textSize="24sp"
+        />
+	<com.wyu.mobilesafe.customeui.ADTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下次重启手机如果发现SIM卡变化\n就会发送报警信息"
+        android:textSize="24sp"
+        />
+	<View 
+	    android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gary"
+	    />
+	<com.wyu.mobilesafe.customeui.SettingItemView 
+	    android:id="@+id/simSetup"
+	    wyu:item_title="点击绑定SIM卡"
+	    android:layout_width="match_parent"
+    	android:layout_height="wrap_content"   
+    	android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+	    />	
+	
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+	    >
+		<LinearLayout 
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			
+		    android:layout_marginBottom="10dp"
+		    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"  
+	        android:orientation="horizontal"
+	        
+		    >
+		    <ImageView
+		        style="@style/setupguide_imageview"
+		        />
+		     <ImageView 
+		        style="@style/setupguide_imageview"  
+	            android:src="@drawable/onekey_item_select"
+		        />
+		    
+		    <ImageView 
+		       	style="@style/setupguide_imageview" 
+	            android:src="@drawable/onekey_item"
+		        />
+		    
+		    <ImageView 
+		        style="@style/setupguide_imageview"
+		        />
+		     
+		</LinearLayout>
+	    <Button
+	        style="@style/setupguide_next_button"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"	        
+	        />
+	     <Button
+	      	style="@style/setupguide_pre_button"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentLeft="true"	       
+	        />
+
+	</RelativeLayout>
+	
+</LinearLayout>

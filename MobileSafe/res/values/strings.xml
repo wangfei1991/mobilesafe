@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">手机卫士</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_lost_find">LostFind</string>
+    <string name="title_activity_setup_guide1">SetupGuide1</string>
+    <string name="title_activity_select_contactor">SelectContactorActivity</string>
+
+</resources>

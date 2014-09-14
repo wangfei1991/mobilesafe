@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wyu="http://schemas.android.com/apk/res/com.wyu.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+	<TextView 
+	    android:id="@+id/setting_tv_title"
+	   	android:layout_width="match_parent"
+	    android:layout_height="80dp"
+	    android:orientation="vertical"
+	    android:text="设置中心"	
+	    android:textSize="30dp"
+	    android:gravity="center"	    
+	    android:background="@color/green"   	    
+   	    />
+  	<com.wyu.mobilesafe.customeui.SettingItemView
+  	    wyu:item_title="是否更新"
+  	    android:id="@+id/updateSettingItem"
+  		android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"        
+  	    />
+   
+	
+</LinearLayout>
