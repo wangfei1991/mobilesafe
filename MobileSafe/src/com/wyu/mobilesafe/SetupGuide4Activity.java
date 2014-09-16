@@ -1,7 +1,5 @@
 package com.wyu.mobilesafe;
 
-import com.wyu.mobilesafe.customeui.SettingItemView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +7,8 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
+
+import com.wyu.mobilesafe.customeui.SettingItemView;
 
 public class SetupGuide4Activity extends BaseSetupGuideActivity {
 
@@ -69,6 +68,7 @@ public class SetupGuide4Activity extends BaseSetupGuideActivity {
 		edit.commit();
 		Intent intent = new Intent(SetupGuide4Activity.this, LostFindActivity.class);
 		startActivity(intent);
+		finish();
 		overridePendingTransition(R.anim.guide_next_in_anim, R.anim.guide_next_out_anim);
 	}
 	@Override

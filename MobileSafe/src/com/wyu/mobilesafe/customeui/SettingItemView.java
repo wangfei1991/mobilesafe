@@ -6,6 +6,7 @@ import com.wyu.mobilesafe.R;
 import com.wyu.mobilesafe.utils.FontTools;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,10 +31,6 @@ public class SettingItemView extends RelativeLayout {
 													int defStyle) {
 		super(context, attrs, defStyle);
 		initView(context);
-		Log.e(TAG,attrs.getAttributeValue(0));
-		Log.e(TAG,attrs.getAttributeValue(1));
-		Log.e(TAG,attrs.getAttributeValue(2));
-		Log.e(TAG,attrs.getAttributeValue(3));
 		String titleContent = attrs.getAttributeValue(
 				"http://schemas.android.com/apk/res/com.wyu.mobilesafe", "item_title");
 	}
@@ -81,6 +78,10 @@ public class SettingItemView extends RelativeLayout {
 	public void setChecked(boolean check)
 	{
 		switchCheck.setChecked(check);
+	}
+	public void setFont(Typeface typeface)
+	{
+		textView.setTypeface(typeface);
 	}
 	
 }

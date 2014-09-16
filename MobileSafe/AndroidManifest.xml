@@ -11,7 +11,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -38,36 +44,52 @@
         </activity>
         <activity
             android:name=".SettingActivity"
-            android:label="@string/title_activity_setting" >
-        </activity>
+            android:label="@string/title_activity_setting" />
         <activity
             android:name=".LostFindActivity"
-            android:label="@string/title_activity_lost_find" >
-        </activity>
+            android:label="@string/title_activity_lost_find"
+            android:launchMode="singleTask" />
         <activity
             android:name=".SetupGuide1Activity"
-            android:label="@string/title_activity_setup_guide1"
-            android:launchMode="singleTask" >
-        </activity>
+            android:label="@string/title_activity_setup_guide1" />
         <activity
             android:name=".SetupGuide2Activity"
-            android:label="@string/title_activity_setup_guide1"
-            android:launchMode="singleTask" >
-        </activity>
+            android:label="@string/title_activity_setup_guide1" />
         <activity
             android:name=".SetupGuide3Activity"
-            android:label="@string/title_activity_setup_guide1"
-            android:launchMode="singleTask" >
-        </activity>
+            android:label="@string/title_activity_setup_guide1" />
         <activity
             android:name=".SetupGuide4Activity"
-            android:label="@string/title_activity_setup_guide1"
-            android:launchMode="singleTask" >
-        </activity>
+            android:label="@string/title_activity_setup_guide1" />
         <activity
             android:name=".SelectContactorActivity"
-            android:label="@string/title_activity_select_contactor" >
-        </activity>
+            android:label="@string/title_activity_select_contactor" />
+
+        <!-- SMS广播接收器 -->
+        <receiver android:name="com.wyu.mobilesafe.receiver.SMSBroadcastReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 重启完成就检测SIM是否有变更 -->
+        <receiver android:name="com.wyu.mobilesafe.receiver.BootSIMCheckReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- 用于锁定屏幕 -->
+        <receiver
+            android:name="com.wyu.mobilesafe.receiver.AdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

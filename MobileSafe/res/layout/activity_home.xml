@@ -16,7 +16,8 @@
 	    android:gravity="center"	    
 	    android:background="@color/green"   	    
    	    />
-	 <com.wyu.mobilesafe.customeui.ADTextView 
+	 <TextView
+	    android:id="@+id/ad_TV" 
     	android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:orientation="vertical"

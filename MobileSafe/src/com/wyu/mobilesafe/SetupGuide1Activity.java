@@ -1,9 +1,14 @@
 package com.wyu.mobilesafe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+/**
+ * Ïòµ¼¼ò½é
+ * @author wangfei
+ *
+ */
 
 public class SetupGuide1Activity extends BaseSetupGuideActivity {
 	
@@ -22,6 +27,7 @@ public class SetupGuide1Activity extends BaseSetupGuideActivity {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent(SetupGuide1Activity.this, SetupGuide2Activity.class);
 		startActivity(intent);
+		finish();
 		overridePendingTransition(R.anim.guide_next_in_anim, R.anim.guide_next_out_anim);
 	}
 	@Override

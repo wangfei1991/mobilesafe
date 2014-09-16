@@ -91,6 +91,7 @@ public class SetupGuide3Activity extends BaseSetupGuideActivity{
 		Intent intent = new Intent(SetupGuide3Activity.this, 
 										SetupGuide4Activity.class);
 		startActivity(intent);
+		finish();
 		overridePendingTransition(R.anim.guide_next_in_anim, 
 									   R.anim.guide_next_out_anim);
 	}

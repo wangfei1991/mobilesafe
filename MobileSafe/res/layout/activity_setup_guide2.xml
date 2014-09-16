@@ -38,6 +38,14 @@
     	android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
 	    />	
+	<com.wyu.mobilesafe.customeui.SettingItemView 
+	    android:id="@+id/adminSetup"
+	    wyu:item_title="开启设备管理"
+	    android:layout_width="match_parent"
+    	android:layout_height="wrap_content"   
+    	android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+	    />
 	
 	<RelativeLayout 
 	    android:layout_width="match_parent"

@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -59,6 +60,9 @@ public class HomeActivity extends Activity {
 			};
 	/*******************************************************************************/
 	
+	private TextView home_title;
+	private TextView ad_TextView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -66,17 +70,9 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.activity_home);
 		
 		
-		TextView home_title = (TextView) findViewById(R.id.home_title);
-		View view = findViewById(R.id.homeactivity_layout);
+		home_title = (TextView) findViewById(R.id.home_title);
+		ad_TextView = (TextView) findViewById(R.id.ad_TV);
 		GridView gridView = (GridView) findViewById(R.id.home_gridView);
-		
-		FontTools.setFont(this, home_title);		
-		
-		/****************************设置一个启动动画***********************************/
-//		AlphaAnimation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
-//		alphaAnimation.setDuration(1000);
-//		view.setAnimation(alphaAnimation);
-		/*************************************************************************/
 		
 		/********************设置GridView的Adapter和相关的点击事件***********************/
 		MyListAdapter myListAdapter = new MyListAdapter();		
@@ -109,19 +105,27 @@ public class HomeActivity extends Activity {
 		
 	}
 	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		FontTools.setFont(this, home_title);
+		FontTools.setFont(HomeActivity.this, ad_TextView);
+		Log.e("TAG", "HomeActivity onResume");
+	}
+	
 	/**
 	 * 用于手机防盗的密码设置或着进入
 	 */
 	protected void showDialogToProtect() {
 		SharedPreferences preferences = 
-						getSharedPreferences("password", Context.MODE_PRIVATE);
+						getSharedPreferences("config", Context.MODE_PRIVATE);
 		String password = preferences.getString("password", "");
-		if (password.isEmpty()) {
+		if (password.isEmpty()) {										//密码空，就去设置
 			showSetupDialog();
 		}else {
-			showEnterDialog();
+			showEnterDialog();											//设置密码，就进入
 		}
-		Editor edit = preferences.edit();
 	}
 
 
@@ -148,7 +152,7 @@ public class HomeActivity extends Activity {
 				String password = password_et.getText().toString().trim();
 				String md5Password = MD5Utils.md5Password(password);
 				SharedPreferences preferences = 
-							getSharedPreferences("password", Context.MODE_PRIVATE);
+							getSharedPreferences("config", Context.MODE_PRIVATE);
 				String savedPassword = preferences.getString("password", "");
 				if (!savedPassword.equals(md5Password)) {
 					Toast.makeText(HomeActivity.this, 
@@ -208,7 +212,7 @@ public class HomeActivity extends Activity {
 				}else if (password.equals(passwordConfirm)) {	
 					//1.保存数据
 					SharedPreferences preferences = 
-							getSharedPreferences("password", Context.MODE_PRIVATE);
+							getSharedPreferences("config", Context.MODE_PRIVATE);
 					Editor edit = preferences.edit();
 					String md5Password = MD5Utils.md5Password(password);
 					edit.putString("password",md5Password);
@@ -263,9 +267,9 @@ public class HomeActivity extends Activity {
 											findViewById(R.id.home_item_textview);
 			
 			
-			FontTools.setFont(HomeActivity.this, textView);
 			imageView.setImageResource(icons[position]);
 			textView.setText(strings[position]);
+			FontTools.setFont(HomeActivity.this, textView);
 			/********************************************************************/
 			
 			return itemView;

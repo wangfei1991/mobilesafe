@@ -22,25 +22,26 @@ public class LostFindActivity extends Activity {
 		SharedPreferences preferences = getSharedPreferences("config",
 												 Context.MODE_PRIVATE);
 		boolean setupGuide = preferences.getBoolean("lostfind", false);
-		if (setupGuide) {
+		
+		if (setupGuide) {														//设置了向导就进入界面，否则进入设置向导
 			setContentView(R.layout.activity_lost_find);
 			
 			protectImageView = (ImageView) findViewById(R.id.protectImageView);
 			safePhoneTV = (TextView) findViewById(R.id.safePhoneTV);
 			
-			/********************从配置文件中获取安全号码************************/
-			String safePhone = preferences.getString("safePhone", "");
+			/********************从配置文件中获取安全号码*****************************/
+			String safePhone = preferences.getString("phone", "");
 			safePhoneTV.setText(safePhone);
-			/***************************************************************/
+			/*******************************************************************/
 			
-			/*******************************设置是否开启了防盗保护**************/
+			/*******************************设置是否开启了防盗保护******************/
 			boolean protect = preferences.getBoolean("startProtection",false);
 			if (protect) {
 				protectImageView.setImageResource(R.drawable.locked);
 			}else{
 				protectImageView.setImageResource(R.drawable.unlock);
 			}
-			/**************************************************************/
+			/******************************************************************/
 			
 		}else {			
 			Intent intent = new Intent(LostFindActivity.this, 
