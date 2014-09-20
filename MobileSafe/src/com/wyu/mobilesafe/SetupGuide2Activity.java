@@ -90,7 +90,7 @@ public class SetupGuide2Activity extends BaseSetupGuideActivity {
 				ComponentName   mDeviceAdmin =
 		        		new ComponentName(SetupGuide2Activity.this,AdminReceiver.class);				
 				Editor edit = pref.edit();
-				if (adminSetup.isChecked()) {
+				if ((adminSetup.isChecked())){
 					adminSetup.setChecked(false);
 					edit.putBoolean("admin", false);
 					if (mDPM.isAdminActive(mDeviceAdmin)) {

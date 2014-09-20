@@ -52,6 +52,7 @@
 		        />
 		</LinearLayout>
 	    <Button
+	        android:visibility="gone"
 	        style="@style/setupguide_next_button"
 	       	android:onClick="complete"
 	        android:layout_alignParentBottom="true"
@@ -59,6 +60,7 @@
 	        android:text="设置完成" 
 	        />
 	     <Button
+	         android:visibility="gone"
 	      	style="@style/setupguide_pre_button"
 	        android:layout_alignParentBottom="true"
 	        android:layout_alignParentLeft="true"	       

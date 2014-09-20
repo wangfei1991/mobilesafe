@@ -1,0 +1,71 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/advancedUtils_TV"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:text="高级工具"
+            android:textSize="30dp" 
+            />
+
+        <TextView
+            android:id="@+id/queryAddress_TV"
+            android:background="@drawable/textview_selector"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="queryAddress"
+            android:text="归属地查询" 
+            android:gravity="center"
+            android:textSize="24dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/queryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:background="@color/gary"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:id="@+id/requestPhone_ET"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="请输入查询号码"
+                android:singleLine="true" 
+                android:inputType="phone"
+                />
+			<TextView 
+			    android:id="@+id/showAddress_TV"
+			    android:layout_marginTop="10dp"
+			    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="18sp"
+			    />
+            <Button
+                android:id="@+id/query_BT"
+                android:layout_marginTop="10dp"
+                android:onClick="query"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="查询" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

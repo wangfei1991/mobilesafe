@@ -1,20 +1,11 @@
 package com.wyu.mobilesafe;
 
-import com.wyu.mobilesafe.utils.FontTools;
-import com.wyu.mobilesafe.utils.MD5Utils;
-
-import android.R.color;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,8 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -31,9 +20,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.wyu.mobilesafe.utils.FontTools;
+import com.wyu.mobilesafe.utils.MD5Utils;
 
 /**
  * 应用的主界面
@@ -83,17 +74,23 @@ public class HomeActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
+				Intent intent = null;
 				switch (position) {
 				case 8:
-					Intent intent = new Intent(HomeActivity.this, 
+					 intent = new Intent(HomeActivity.this, 
 														SettingActivity.class);
 					startActivity(intent);
 					break;
-					
+				case 7:
+					intent = new Intent(HomeActivity.this, 
+							AdvancedUtilsActivity.class);
+					startActivity(intent);
+
+					break;
 				case 0:
 					showDialogToProtect();
 					break;
-
+				
 				default:
 					break;
 				}

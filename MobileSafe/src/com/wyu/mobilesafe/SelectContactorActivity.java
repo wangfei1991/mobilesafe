@@ -16,12 +16,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 public class SelectContactorActivity extends Activity {
 
 	private ListView listView;
-	private TextView phoneTV;
 	private List<Map<String, String>> contactorData;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

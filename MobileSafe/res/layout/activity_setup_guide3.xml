@@ -82,11 +82,13 @@
 		        />
 		</LinearLayout>
 	    <Button
+	        android:visibility="gone"
 	       	style="@style/setupguide_next_button"
 	        android:layout_alignParentBottom="true"
 	        android:layout_alignParentRight="true"
 	        />
 	     <Button
+	         android:visibility="gone"
 	        style="@style/setupguide_pre_button"
 	        android:layout_alignParentBottom="true"
 	        android:layout_alignParentLeft="true"
