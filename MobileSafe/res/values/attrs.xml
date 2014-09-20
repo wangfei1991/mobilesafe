@@ -4,4 +4,8 @@
          <!-- 用于设置设置中心的item的title -->
         <attr name="item_title" format="string" />
      </declare-styleable>
+     <declare-styleable name="SettingItemView2">
+         <attr name="item_tit" format="string"/>
+         <attr name="item_context" format="string" />
+     </declare-styleable>
 </resources>

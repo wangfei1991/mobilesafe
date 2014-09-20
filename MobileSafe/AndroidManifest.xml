@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 
     <application
         android:allowBackup="true"
@@ -92,10 +93,7 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="com.wyu.mobilesafe.AdvancedUtilsActivity"
-            android:label="@string/title_activity_advanced_utils" >
-        </activity>
+     	<service android:name="com.wyu.mobilesafe.server.AddressListenerServer"/>
     </application>
 
 </manifest>

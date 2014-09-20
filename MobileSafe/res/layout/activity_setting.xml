@@ -20,36 +20,27 @@
         android:layout_height="wrap_content"
         wyu:item_title="是否更新" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:clickable="true"
+    <com.wyu.mobilesafe.customeui.SettingItemView
+        android:id="@+id/addressShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:onClick="settingFont" >
+        wyu:item_title="来电归属地显示" />
 
-        <TextView
-            android:id="@+id/settingfont_TV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:text="字体设置"
-            android:textSize="24sp" />
+    <com.wyu.mobilesafe.customeui.SettingItemVIew2 
+         android:id="@+id/addressShowPattern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        wyu:item_tit="归属地显示格式"
+        />        
+    <com.wyu.mobilesafe.customeui.SettingItemVIew2 
+        android:id="@+id/settingFont"
+        android:onClick="settingFont"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        wyu:item_tit="字体设置"
+        />    
 
-        <TextView
-            android:id="@+id/settedFonts_TV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:text="字体设置"
-            android:textSize="24sp" />
-    </RelativeLayout>
-     <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/gary" 
-        >        
-    </View>
 
 </LinearLayout>
