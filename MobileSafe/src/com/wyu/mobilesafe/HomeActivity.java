@@ -76,21 +76,24 @@ public class HomeActivity extends Activity {
 				// TODO Auto-generated method stub
 				Intent intent = null;
 				switch (position) {
-				case 8:
-					 intent = new Intent(HomeActivity.this, 
-														SettingActivity.class);
+				case 0:
+					showDialogToProtect();
+					break;
+				case 1:
+					intent = new Intent(HomeActivity.this, BlackNumberActivity.class);
 					startActivity(intent);
 					break;
 				case 7:
 					intent = new Intent(HomeActivity.this, 
 							AdvancedUtilsActivity.class);
 					startActivity(intent);
-
+					
 					break;
-				case 0:
-					showDialogToProtect();
+				case 8:
+					 intent = new Intent(HomeActivity.this, 
+														SettingActivity.class);
+					startActivity(intent);
 					break;
-				
 				default:
 					break;
 				}

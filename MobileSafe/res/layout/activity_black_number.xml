@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/blackNumberTitle"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/green"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:text="黑名单"
+        android:textSize="30dp" />
+
+    <ListView
+        android:id="@+id/blackShow_LV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:id="@+id/addBlack_BT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_selector"
+        android:text="添加黑名单" />
+
+</LinearLayout>

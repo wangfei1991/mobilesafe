@@ -9,5 +9,6 @@
     <string name="title_activity_setup_guide1">SetupGuide1</string>
     <string name="title_activity_select_contactor">SelectContactorActivity</string>
     <string name="title_activity_advanced_utils">AdvancedUtilsActivity</string>
+    <string name="title_activity_black_number">BlackNumberActivity</string>
 
 </resources>
