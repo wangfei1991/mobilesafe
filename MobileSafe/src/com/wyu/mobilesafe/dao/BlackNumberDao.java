@@ -113,8 +113,21 @@ public class BlackNumberDao {
 		SQLiteDatabase database = helper.getReadableDatabase();
 		Cursor cursor = database.query("blacknum",new String[]{"_id"}, 
 				"number=?",new String[]{ number}, null, null, null);
-		while (cursor.moveToFirst()) {
+		if(cursor.moveToFirst()) {
 			result = true;			
+		}
+		database.close();
+		return result;
+	}
+	
+	public String findMode(String number)
+	{
+		String result = "";
+		SQLiteDatabase database = helper.getReadableDatabase();
+		Cursor cursor = database.query("blacknum",new String[]{"mode"}, 
+				"number=?",new String[]{ number}, null, null, null);
+		if (cursor.moveToFirst()) {
+			result = cursor.getString(0);			
 		}
 		database.close();
 		return result;

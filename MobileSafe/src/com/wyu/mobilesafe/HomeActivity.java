@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -85,7 +86,7 @@ public class HomeActivity extends Activity {
 					break;
 				case 7:
 					intent = new Intent(HomeActivity.this, 
-							AdvancedUtilsActivity.class);
+						AdvancedUtilsActivity.class);
 					startActivity(intent);
 					
 					break;
@@ -104,16 +105,13 @@ public class HomeActivity extends Activity {
 		/*************************************************************************/
 		
 	}
-	
 	@Override
-	protected void onResume() {
+	protected void onStart() {
 		// TODO Auto-generated method stub
-		super.onResume();
-		FontTools.setFont(this, home_title);
-		FontTools.setFont(HomeActivity.this, ad_TextView);
-		Log.e("TAG", "HomeActivity onResume");
+		super.onStart();
+		Typeface typeface = FontTools.setFont(this, home_title);
+		ad_TextView.setTypeface(typeface);
 	}
-	
 	/**
 	 * 用于手机防盗的密码设置或着进入
 	 */

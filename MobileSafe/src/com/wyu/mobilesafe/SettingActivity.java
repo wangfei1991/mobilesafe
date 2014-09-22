@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.gesture.Prediction;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.wyu.mobilesafe.customeui.SettingItemVIew2;
 import com.wyu.mobilesafe.customeui.SettingItemView;
 import com.wyu.mobilesafe.server.AddressListenerServer;
+import com.wyu.mobilesafe.server.BlackNumberServer;
 import com.wyu.mobilesafe.server.RunningServerUtils;
 import com.wyu.mobilesafe.utils.FontTools;
 
@@ -30,9 +32,11 @@ public class SettingActivity extends Activity {
 
 	protected static final int SETFONTCODE = 1;
 	private SettingItemView updateItemView;
+	private SettingItemView blockSettingItem;
 	private SettingItemView addressShow;
 	private SettingItemVIew2 addressShowPat;
 	private SettingItemVIew2 settingFont;
+	
 	private TextView settingTitle;
 //	private TextView settedFonts_TV;
 //	private TextView settingfont_TV;
@@ -44,18 +48,20 @@ public class SettingActivity extends Activity {
 	private int saveFont;
 	private int patternCheckedItem;
 	private Intent addressIntent;
+	private Intent blackIntent;
 
 	private Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case SETFONTCODE:
-				FontTools.setFont(SettingActivity.this, settingFont.getItemTitTextView());
+				Typeface typeface = 
+					FontTools.setFont(SettingActivity.this, settingFont.getItemTitTextView());
 				
-				FontTools.setFont(SettingActivity.this, addressShowPat.getItemTitTextView());
-				FontTools.setFont(SettingActivity.this, addressShowPat.getItemConTextView());
-				
-				FontTools.setFont(SettingActivity.this, settingTitle);
+				addressShowPat.getItemTitTextView().setTypeface(typeface);
+				addressShowPat.getItemConTextView().setTypeface(typeface);				
+				settingTitle.setTypeface(typeface);
+				blockSettingItem.setFont(settingTitle.getTypeface());
 				updateItemView.setFont(settingTitle.getTypeface());
 				addressShow.setFont(settingTitle.getTypeface());
 				int currentFont = pref.getInt("fonts", 0);
@@ -78,6 +84,8 @@ public class SettingActivity extends Activity {
 		patternCheckedItem = pref.getInt("pattern", 0);
 
 		updateItemView = (SettingItemView) findViewById(R.id.updateSettingItem);
+		blockSettingItem = 
+						 (SettingItemView) findViewById(R.id.blockSettingItem);
 		addressShow    = (SettingItemView) findViewById(R.id.addressShow);
 		addressShowPat = (SettingItemVIew2) findViewById(R.id.addressShowPattern);
 		settingFont    = (SettingItemVIew2) findViewById(R.id.settingFont);
@@ -105,7 +113,35 @@ public class SettingActivity extends Activity {
 			}
 		});
 		/**************************************************************/
-
+		
+		/********************设置是否拦截黑名单****************************/
+		boolean blockRuning = RunningServerUtils.isRunningServer(
+						SettingActivity.this, 
+						"com.wyu.mobilesafe.server.BlackNumberServer");
+		if (blockRuning) {
+			blockSettingItem.setChecked(true);
+		}else{
+			blockSettingItem.setChecked(false);
+		}
+		blackIntent = new Intent(SettingActivity.this, 
+				BlackNumberServer.class);
+		blockSettingItem.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) 
+			{
+				// TODO Auto-generated method stub
+				
+				if (blockSettingItem.isChecked()) {
+					blockSettingItem.setChecked(false);
+					stopService(blackIntent);
+				}else {
+					blockSettingItem.setChecked(true);
+					startService(blackIntent);
+				}
+			}
+		});
+		/**************************************************************/
+		
 		/********************** 设置监听是否显示来电归属地显示 ****************/
 		boolean isRunning = RunningServerUtils.isRunningServer(
 				SettingActivity.this,

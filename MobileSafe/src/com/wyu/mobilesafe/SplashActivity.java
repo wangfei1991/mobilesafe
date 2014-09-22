@@ -82,7 +82,15 @@ public class SplashActivity extends Activity {
 		splash_layout = findViewById(R.id.splash_layout);
 		/*******************************************************************************/
 
-		copyDataBase();
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				copyDataBase();
+			}
+		}).start();
+	
 
 		splash_version.setText("V" + getVersionName()); // 设置版本信息
 		FontTools.setFont(this, splash_tv); // 设置字体
@@ -140,19 +148,6 @@ public class SplashActivity extends Activity {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-
-	}
-
-	private void animation() {
-		Animation animation = AnimationUtils.loadAnimation(SplashActivity.this,
-				R.anim.homeacitivity_animator);
-		splash_layout.setAnimation(animation);
 	}
 
 	/**

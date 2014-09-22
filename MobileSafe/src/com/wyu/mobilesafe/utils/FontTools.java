@@ -16,7 +16,7 @@ public class FontTools {
 	
 	private FontTools() {	}			//为了不让被创建
 	
-	public static void setFont(Context context,TextView textView)
+	public static Typeface setFont(Context context,TextView textView)
 	{
 		SharedPreferences preferences = context.getSharedPreferences("config", Context.MODE_PRIVATE);
 		int font = preferences.getInt("fonts", 0);
@@ -39,5 +39,6 @@ public class FontTools {
 			break;
 		}
 		textView.setTypeface(typeface);
+		return typeface;
 	}
 }
