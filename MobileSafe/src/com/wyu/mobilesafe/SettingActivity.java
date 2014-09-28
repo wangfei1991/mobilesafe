@@ -19,8 +19,8 @@ import com.wyu.mobilesafe.customeui.SettingItemVIew2;
 import com.wyu.mobilesafe.customeui.SettingItemView;
 import com.wyu.mobilesafe.server.AddressListenerServer;
 import com.wyu.mobilesafe.server.BlackNumberServer;
-import com.wyu.mobilesafe.server.RunningServerUtils;
 import com.wyu.mobilesafe.utils.FontTools;
+import com.wyu.mobilesafe.utils.RunningServerUtils;
 
 /**
  * 设置中心的activity

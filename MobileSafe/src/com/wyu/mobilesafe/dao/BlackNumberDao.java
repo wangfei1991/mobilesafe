@@ -19,8 +19,10 @@ import com.wyu.mobilesafe.domain.BlackNumberInfo;
  */
 public class BlackNumberDao {
 	private BlackNumberOpenHelper helper;
+	private SQLiteDatabase database;
 	public BlackNumberDao(Context context) {
 		helper = new BlackNumberOpenHelper(context);
+		database = helper.getReadableDatabase();
 	}
 	/**
 	 * 用于添加记录
@@ -75,9 +77,11 @@ public class BlackNumberDao {
 	 */
 	public List<Map<String, String>> find()
 	{
+		if (!database.isOpen()) {
+			database = helper.getReadableDatabase();
+		}
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-		Map<String, String> map = null;
-		SQLiteDatabase database = helper.getReadableDatabase();
+		Map<String, String> map = null;		
 		Cursor cursor = database.query("blacknum", 
 				new String[]{"name","number","mode"},null, null, null, null, null);
 		while(cursor.moveToNext())
@@ -109,8 +113,10 @@ public class BlackNumberDao {
 	 */
 	public boolean findByNumber(String number)
 	{
+		if (!database.isOpen()) {
+			database = helper.getReadableDatabase();
+		}
 		boolean result = false;
-		SQLiteDatabase database = helper.getReadableDatabase();
 		Cursor cursor = database.query("blacknum",new String[]{"_id"}, 
 				"number=?",new String[]{ number}, null, null, null);
 		if(cursor.moveToFirst()) {
@@ -122,8 +128,10 @@ public class BlackNumberDao {
 	
 	public String findMode(String number)
 	{
+		if (!database.isOpen()) {
+			database = helper.getReadableDatabase();
+		}
 		String result = "";
-		SQLiteDatabase database = helper.getReadableDatabase();
 		Cursor cursor = database.query("blacknum",new String[]{"mode"}, 
 				"number=?",new String[]{ number}, null, null, null);
 		if (cursor.moveToFirst()) {
@@ -132,4 +140,11 @@ public class BlackNumberDao {
 		database.close();
 		return result;
 	}
+	public void close()
+	{
+		if (database.isOpen()) {
+			database.close();
+		}
+	}
+	
 }

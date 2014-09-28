@@ -1,4 +1,4 @@
-package com.wyu.mobilesafe.server;
+package com.wyu.mobilesafe.utils;
 
 import java.util.List;
 
